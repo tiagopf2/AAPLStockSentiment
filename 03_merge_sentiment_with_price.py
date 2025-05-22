@@ -10,7 +10,7 @@ news_file = "StockAAPL/apple_news_data.csv"
 df_price = pd.read_csv(price_file, parse_dates=["Date"])
 df_news = pd.read_csv(news_file, parse_dates=["date"])
 
-# Step 1: Process news data
+# Process news data
 
 df_news["date"] = df_news["date"].dt.date
 df_news["date"] = pd.to_datetime(df_news["date"]) 
@@ -26,7 +26,7 @@ df_sentiment = df_news.groupby("date").agg({
     "date": "Date"
 }).reset_index()
 
-# Step 2: Merge with price features
+# Merge with price features
 
 df_merged = pd.merge(df_price, df_sentiment, how="left", left_on="Date", right_on="date")
 
