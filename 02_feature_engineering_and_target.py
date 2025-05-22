@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-# Load and merge stock data
+# Stock data
 
 data_dir = "AAPLStockDataset1980-2025"
 file_2025 = os.path.join(data_dir, "aapl_us_2025.csv")
@@ -13,7 +13,7 @@ df_hist = pd.read_csv(file_hist, parse_dates=["Date"])
 df_price = pd.concat([df_hist, df_2025], ignore_index=True)
 df_price = df_price.sort_values("Date").reset_index(drop=True)
 
-# Step 1: Create Return and Target
+# Create Return and Target
 
 df_price["return_t"] = (df_price["Close"] - df_price["Open"]) / df_price["Open"]
 
@@ -21,7 +21,7 @@ df_price["return_t+1"] = df_price["Close"].shift(-1) / df_price["Close"] - 1
 
 df_price["target"] = (df_price["return_t+1"] > 0).astype(int)
 
-# Step 2: Create Features
+# Create Features
 
 df_price["volatility"] = (df_price["High"] - df_price["Low"]) / df_price["Open"]
 
@@ -34,7 +34,7 @@ df_price["ma_volume_5"] = df_price["Volume"].rolling(window=5).mean()
 
 df_price["momentum_3"] = df_price["Close"] - df_price["Close"].shift(3)
 
-# Step 3: Clean Dataset
+# Clean Dataset
 
 df_price = df_price.dropna().reset_index(drop=True)
 
