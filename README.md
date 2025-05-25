@@ -1,12 +1,11 @@
-# 📈 AAPL Stock Sentiment Classifier
+# AAPL Stock Sentiment Classifier
 
 This project uses financial news sentiment and technical indicators to predict whether Apple Inc. (AAPL) stock will go up or down the next day.
 
-🧠 Built with real-world news and stock price data from 2010–2025, it combines Natural Language Processing, machine learning, and market features to train a binary classification model.
+Built with real-world news and stock price data from 2010–2025, it combines Natural Language Processing, machine learning, and market features to train a binary classification model.
 
----
 
-## 🚀 Objective
+## Objective
 
 Predict whether Apple's stock price will increase the next day (binary classification: up = 1, down = 0), using:
 
@@ -15,9 +14,8 @@ Predict whether Apple's stock price will increase the next day (binary classific
 - Technical indicators like RSI and MACD
 - Temporal and calendar patterns (day of week, month end)
 
----
 
-## 🔧 How It Works
+## How It Works
 
 1. **Data Sources**
    - `aapl_us_d.csv` and `aapl_us_2025.csv`: AAPL daily price and volume data (2010–2025)
@@ -39,19 +37,17 @@ Predict whether Apple's stock price will increase the next day (binary classific
    - Time-based train/test split to avoid lookahead bias
    - Feature importance visualization
 
----
 
-## 📊 Results
+## Results
 
 | Model           | Accuracy | ROC-AUC |
 |----------------|----------|---------|
 | Logistic Reg.  | ~55.2%   | ~0.537  |
 | Random Forest  | 57.9%    | 0.583   |
-| XGBoost        | 57.8%    | **0.581** ✅
+| XGBoost        | 57.8%    | **0.581** 
 
-💡 These results show that sentiment and technical signals can improve predictive performance compared to price alone — even if modestly, which is common in finance.
+These results show that sentiment and technical signals can improve predictive performance compared to price alone — even if modestly, which is common in finance.
 
----
 
-## 📁 Project Structure
+## Project Structure
 
