@@ -1,3 +1,5 @@
+# Written by Tiago Perez
+
 import pandas as pd
 import os
 from sklearn.model_selection import TimeSeriesSplit, GridSearchCV
